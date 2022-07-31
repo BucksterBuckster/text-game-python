@@ -71,7 +71,7 @@ def play_again():
                                     "Choose 'yes' or 'no'. \n",
                                     "yes", "no")
     if "yes" in new_game_response:
-        start_game()
+        order_breakfast()
 
 
 def pick_adversary():
@@ -89,10 +89,10 @@ def win_or_lose_fight():
     return random.choice([True, False])
 
 
-def start_game():
+def order_breakfast():
     intro()
     weapon = get_weapon()
     pick_path(weapon)
 
 
-start_game()
+order_breakfast()
