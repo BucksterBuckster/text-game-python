@@ -1,5 +1,8 @@
 import random
 import time
+import sys
+
+new_game_response = "no"
 
 
 def print_pause(message_to_print, interval):
@@ -10,9 +13,9 @@ def print_pause(message_to_print, interval):
 def valid_input(prompt, option1, option2):
     while True:
         response = input(prompt).lower()
-        if option1 in response:
+        if option1 == response:
             break
-        elif option2 in response:
+        elif option2 == response:
             break
         else:
             print_pause("Sorry, I don't understand.", 2)
@@ -71,7 +74,9 @@ def play_again():
                                     "Choose 'yes' or 'no'. \n",
                                     "yes", "no")
     if "yes" in new_game_response:
-        order_breakfast()
+        play_game()
+    else:
+        sys.exit(0)
 
 
 def pick_adversary():
@@ -89,10 +94,12 @@ def win_or_lose_fight():
     return random.choice([True, False])
 
 
-def order_breakfast():
+def play_game():
     intro()
     weapon = get_weapon()
     pick_path(weapon)
 
 
-order_breakfast()
+if __name__ == '__main__':
+    while True:
+        play_game()
