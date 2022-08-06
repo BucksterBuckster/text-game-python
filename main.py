@@ -5,7 +5,7 @@ import sys
 new_game_response = "no"
 
 
-def print_pause(message_to_print, interval):
+def print_pause(message_to_print, interval=2):
     print(message_to_print)
     time.sleep(interval)
 
@@ -18,7 +18,7 @@ def valid_input(prompt, option1, option2):
         elif option2 == response:
             break
         else:
-            print_pause("Sorry, I don't understand.", 2)
+            print_pause("Sorry, I don't understand.")
     return response
 
 
@@ -58,9 +58,13 @@ def pick_path(weapon):
     elif "yes" in response:
         print_pause("Watch your back.", 2)
         print_pause("Woah! A " + adversary + " just attacked you!", 4)
-        print_pause("You are now fighting the " + adversary + " with your " + weapon, 4)
+        print_pause("You are now fighting the "
+                    + adversary + " with your "
+                    + weapon, 4)
         if did_we_win:
-            print_pause("Victory!!!, you beat the " + adversary + " and they are now dead!", 2)
+            print_pause("Victory!!!, you beat the "
+                        + adversary + " and they are now dead!",
+                        2)
             print_pause("You kicked that things ass!", 1)
             print_pause("Congratulations, you won the game!", 2)
             play_again()
